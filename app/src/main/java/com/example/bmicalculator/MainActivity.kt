@@ -31,7 +31,20 @@ class MainActivity : AppCompatActivity() {
         val bmiText = findViewById<TextView>(R.id.tvIndex)
         val resultDescription = findViewById<TextView>(R.id.tvResult)
         val info = findViewById<TextView>(R.id.tvInfo)
+
+        // Convert bmi to 2 decimal format
         val bmi2digit = String.format("%.2f", bmi)
+
+        if(bmi < 18.5){
+            resultDescription.text = "Under Weight"
+        } else if(bmi < 24.9){
+            resultDescription.text = "Normal Weight"
+        } else if(bmi < 32.9){
+            resultDescription.text = "Overweight"
+        } else{
+            resultDescription.text = "Obese"
+        }
+
         bmiText.text = bmi2digit
         info.text = "Normal range is 18.5 - 24.9"
 
